@@ -22,12 +22,50 @@ function ConvertHandler() {
   this.getReturnUnit = function (initUnit) {
     let result;
 
-    if (initUnit == "gal" || initUnit == "GAL") {
-      result = "l";
-    } else if (initUnit == "l" || initUnit == "L") {
-      result = "gal";
+    switch (initUnit) {
+      case "Gal":
+      case "gAl":
+      case "gaL":
+      case "gal":
+      case "GAL":
+      case "GaL":
+      case "gAL":
+        result = "L";
+        break;
+      case "L":
+      case "l":
+        result = "gal";
+        break;
+      case "Lbs":
+      case "lBs":
+      case "lbS":
+      case "lbs":
+      case "LBS":
+      case "LbS":
+      case "lBS":
+        result = "kg";
+        break;
+      case "kg":
+      case "kG":
+      case "Kg":
+      case "KG":
+        result = "lbs";
+        break;
+      case "mi":
+      case "mI":
+      case "Mi":
+      case "MI":
+        result = "Km";
+        break;
+      case "km":
+      case "kM":
+      case "Km":
+      case "KM":
+        result = "mi";
+        break;
+      default:
+        result = false;
     }
-
     return result;
   };
 
