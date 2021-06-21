@@ -166,7 +166,6 @@ function ConvertHandler() {
     const miToKm = 1.60934;
 
     let result;
-    initNum = parseFloat(initNum);
 
     switch (initUnit) {
       case "Gal":
@@ -176,11 +175,11 @@ function ConvertHandler() {
       case "GAL":
       case "GaL":
       case "gAL":
-        result = (initNum * galToL).toFixed(5);
+        result = parseFloat((initNum * galToL).toFixed(5));
         break;
       case "L":
       case "l":
-        result = (initNum / galToL).toFixed(5);
+        result = parseFloat((initNum / galToL).toFixed(5));
         break;
       case "Lbs":
       case "lBs":
@@ -189,25 +188,25 @@ function ConvertHandler() {
       case "LBS":
       case "LbS":
       case "lBS":
-        result = (initNum * lbsToKg).toFixed(5);
+        result = parseFloat((initNum * lbsToKg).toFixed(5));
         break;
       case "kg":
       case "kG":
       case "Kg":
       case "KG":
-        result = (initNum / lbsToKg).toFixed(5);
+        result = parseFloat((initNum / lbsToKg).toFixed(5));
         break;
       case "mi":
       case "mI":
       case "Mi":
       case "MI":
-        result = (initNum * miToKm).toFixed(5);
+        result = parseFloat((initNum * miToKm).toFixed(5));
         break;
       case "km":
       case "kM":
       case "Km":
       case "KM":
-        result = (initNum / miToKm).toFixed(5);
+        result = parseFloat((initNum / miToKm).toFixed(5));
         break;
       default:
         result = false;

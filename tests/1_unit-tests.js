@@ -30,11 +30,14 @@ suite("Unit Tests", function () {
     let input2 = "KG";
     let input3 = "MI";
     let input4 = "KM";
-    let input5 = "KG";
+    let input5 = "Gal";
     let input6 = "LBS";
     assert.equal(convertHandler.getReturnUnit(input1), "gal");
     assert.equal(convertHandler.getReturnUnit(input2), "lbs");
     assert.equal(convertHandler.getReturnUnit(input3), "km");
+    assert.equal(convertHandler.getReturnUnit(input4), "mi");
+    assert.equal(convertHandler.getReturnUnit(input5), "L");
+    assert.equal(convertHandler.getReturnUnit(input6), "kg");
     done();
   });
 
