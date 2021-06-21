@@ -79,7 +79,53 @@ function ConvertHandler() {
     const galToL = 3.78541;
     const lbsToKg = 0.453592;
     const miToKm = 1.60934;
+
     let result;
+
+    switch (initUnit) {
+      case "Gal":
+      case "gAl":
+      case "gaL":
+      case "gal":
+      case "GAL":
+      case "GaL":
+      case "gAL":
+        result = (initNum * galToL).toFixed(5);
+        break;
+      case "L":
+      case "l":
+        result = (initNum / galToL).toFixed(5);
+        break;
+      case "Lbs":
+      case "lBs":
+      case "lbS":
+      case "lbs":
+      case "LBS":
+      case "LbS":
+      case "lBS":
+        result = (initNum * lbsToKg).toFixed(5);
+        break;
+      case "kg":
+      case "kG":
+      case "Kg":
+      case "KG":
+        result = (initNum / lbsToKg).toFixed(5);
+        break;
+      case "mi":
+      case "mI":
+      case "Mi":
+      case "MI":
+        result = (initNum * miToKm).toFixed(5);
+        break;
+      case "km":
+      case "kM":
+      case "Km":
+      case "KM":
+        result = (initNum / miToKm).toFixed(5);
+        break;
+      default:
+        result = false;
+    }
 
     return result;
   };
