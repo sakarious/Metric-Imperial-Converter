@@ -26,6 +26,18 @@ module.exports = function (app) {
         returnUnit
       );
 
+      if (initNum == "Invalid Number" && initUnit == "Invalid Unit") {
+        res.send("invalid number and unit");
+      }
+
+      if (initNum == "Invalid Number") {
+        res.send("invalid number");
+      }
+
+      if (initUnit == "Invalid Unit") {
+        res.send("invalid unit");
+      }
+
       let response = {};
       response["initNum"] = initNum;
       response["initUnit"] = initUnit;

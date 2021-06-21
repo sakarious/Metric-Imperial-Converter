@@ -63,6 +63,8 @@ function ConvertHandler() {
     ) {
       result = "Invalid Unit";
     }
+
+    return result;
   };
 
   this.getReturnUnit = function (initUnit) {
