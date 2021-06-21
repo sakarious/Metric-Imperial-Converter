@@ -25,7 +25,7 @@ function ConvertHandler() {
       result = "Invalid Number";
     }
 
-    return result;
+    return parseFloat(result);
   };
 
   this.getUnit = function (input) {
@@ -145,13 +145,13 @@ function ConvertHandler() {
       case "mI":
       case "Mi":
       case "MI":
-        result = "Kmkilometer(s)";
+        result = "mile(s)";
         break;
       case "km":
       case "kM":
       case "Km":
       case "KM":
-        result = "mile(s)";
+        result = "kilometer(s)";
         break;
       default:
         result = false;
@@ -166,6 +166,7 @@ function ConvertHandler() {
     const miToKm = 1.60934;
 
     let result;
+    initNum = parseFloat(initNum);
 
     switch (initUnit) {
       case "Gal":
