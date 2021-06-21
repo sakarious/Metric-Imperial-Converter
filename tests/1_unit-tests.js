@@ -5,17 +5,43 @@ const ConvertHandler = require("../controllers/convertHandler.js");
 let convertHandler = new ConvertHandler();
 
 suite("Unit Tests", function () {
-  test("Get Num", (done) => {
-    let input1 = "4L";
-    let input2 = "456L";
-    let input3 = "4.76L";
-    assert.equal(convertHandler.getNum(input1), 4);
-    assert.equal(convertHandler.getNum(input2), 456);
-    assert.equal(convertHandler.getNum(input3), 4.76);
+  test("Get Num - Decimal", (done) => {
+    let input1 = "4.76L";
+    assert.equal(convertHandler.getNum(input1), 4.76);
     done();
   });
 
-  test("Get Unit", (done) => {
+  test("Get Num - Whole Number", (done) => {
+    let input1 = "4L";
+    assert.equal(convertHandler.getNum(input1), 4);
+    done();
+  });
+
+  test("Get Num - Fractional Input", (done) => {
+    let input1 = "4/5L";
+    assert.equal(convertHandler.getNum(input1), 0.8);
+    done();
+  });
+
+  test("Get Num - Fractional Input with Decimal", (done) => {
+    let input1 = "4/2.5L";
+    assert.equal(convertHandler.getNum(input1), 1.6);
+    done();
+  });
+
+  test("Get Num - Double Fractional Input", (done) => {
+    let input1 = "4/5/7/8L";
+    assert.equal(convertHandler.getNum(input1), "Invalid Number");
+    done();
+  });
+
+  test("Get Num - No Numberical Input", (done) => {
+    let input1 = "L";
+    assert.equal(convertHandler.getNum(input1), 1);
+    done();
+  });
+
+  test("Get Unit - Get each valid unit", (done) => {
     let input1 = "4L";
     let input2 = "456KG";
     let input3 = "4.76Mi";
@@ -28,6 +54,22 @@ suite("Unit Tests", function () {
     assert.equal(convertHandler.getUnit(input4), "km");
     assert.equal(convertHandler.getUnit(input5), "gal");
     assert.equal(convertHandler.getUnit(input6), "lbs");
+    done();
+  });
+
+  test("Get Unit - Unknown Unit", (done) => {
+    let input1 = "4Lgb";
+    let input2 = "456tvc";
+    let input3 = "4.76lbnb";
+    let input4 = "4.76airbnb";
+    let input5 = "4.76fgc";
+    let input6 = "4.76rccg";
+    assert.equal(convertHandler.getUnit(input1), "Invalid Unit");
+    assert.equal(convertHandler.getUnit(input2), "Invalid Unit");
+    assert.equal(convertHandler.getUnit(input3), "Invalid Unit");
+    assert.equal(convertHandler.getUnit(input4), "Invalid Unit");
+    assert.equal(convertHandler.getUnit(input5), "Invalid Unit");
+    assert.equal(convertHandler.getUnit(input6), "Invalid Unit");
     done();
   });
 
