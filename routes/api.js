@@ -10,15 +10,20 @@ module.exports = function (app) {
   app.get("/api/convert", (req, res) => {
     if (req.query.input) {
       let input = req.query.input;
+
       let initNum = convertHandler.getNum(input);
+
       let initUnit = convertHandler.getUnit(input);
+
       let returnNum = convertHandler.convert(initNum, initUnit);
+
       let returnUnit = convertHandler.getReturnUnit(initUnit);
+
       let toString = convertHandler.getString(
         initNum,
         initUnit,
         returnNum,
-        returnNum
+        returnUnit
       );
 
       let response = {};
