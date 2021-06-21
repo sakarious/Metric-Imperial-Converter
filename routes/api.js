@@ -14,14 +14,19 @@ module.exports = function (app) {
       let initUnit = convertHandler.getUnit(input);
       let returnNum = convertHandler.convert(initNum, initUnit);
       let returnUnit = convertHandler.getReturnUnit(initUnit);
-      let toString;
+      let toString = convertHandler.getString(
+        initNum,
+        initUnit,
+        returnNum,
+        returnNum
+      );
 
       let response = {};
       response["initNum"] = initNum;
       response["initUnit"] = initUnit;
       response["returnNum"] = returnNum;
       response["returnUnit"] = returnUnit;
-      response["toString"] = toString;
+      response["string"] = toString;
       return res.json({ response });
     }
 
