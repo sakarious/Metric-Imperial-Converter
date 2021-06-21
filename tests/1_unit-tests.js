@@ -19,9 +19,9 @@ suite("Unit Tests", function () {
     let input1 = "4L";
     let input2 = "456KG";
     let input3 = "4.76M";
-    assert.equal(convertHandler.getUnit(input1), 4);
-    assert.equal(convertHandler.getNu(input2), 456);
-    assert.equal(convertHandler.getNum(input3), 4.76);
+    assert.equal(convertHandler.getUnit(input1), "L");
+    assert.equal(convertHandler.getUnit(input2), "KG");
+    assert.equal(convertHandler.getUnit(input3), "M");
     done();
   });
 });

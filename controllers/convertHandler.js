@@ -22,6 +22,12 @@ function ConvertHandler() {
   this.getReturnUnit = function (initUnit) {
     let result;
 
+    if (initUnit == "gal" || initUnit == "GAL") {
+      result = "l";
+    } else if (initUnit == "l" || initUnit == "L") {
+      result = "gal";
+    }
+
     return result;
   };
 

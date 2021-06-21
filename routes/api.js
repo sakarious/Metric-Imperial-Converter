@@ -13,7 +13,7 @@ module.exports = function (app) {
       let initNum = convertHandler.getNum(input);
       let initUnit = convertHandler.getUnit(input);
       let returnNum;
-      let returnUnit;
+      let returnUnit = convertHandler.getReturnUnit(initUnit);
       let toString;
 
       let response = {};
