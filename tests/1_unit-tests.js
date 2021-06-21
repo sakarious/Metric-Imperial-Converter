@@ -104,4 +104,18 @@ suite("Unit Tests", function () {
     assert.equal(convertHandler.convert(initNum, initUnit), 2.48549);
     done();
   });
+
+  // test("Convert 'km' to 'mi'", (done) => {
+  //   let initNum = "4";
+  //   let initUnit = "km";
+  //   assert.equal(convertHandler.convert(initNum, initUnit), 2.48549);
+  //   done();
+  // });
+
+  // test("Convert 'km' to 'mi'", (done) => {
+  //   let initNum = "4";
+  //   let initUnit = "km";
+  //   assert.equal(convertHandler.convert(initNum, initUnit), 2.48549);
+  //   done();
+  // });
 });
