@@ -4,7 +4,26 @@ function ConvertHandler() {
     //Separate numbers from Unit
     let resultArray = input.match(/[a-z]+|[^a-z]+/gi);
     //Number comes before unit
-    result = resultArray[0];
+    result = parseFloat(resultArray[0]);
+
+    //check if a value is given, if not, default to 1
+    if (/\d/.test(result) === false) {
+      result = 1;
+    }
+
+    if (result.toString().includes("/")) {
+      let fraction = result.toString.split("/");
+      if (fraction.length !== 2) {
+        result = "Invalid Number";
+      }
+      value1 = parseFloat(fraction[0]);
+      value2 = parseFloat(fraction[1]);
+      result = parseFloat(value1 / value2).toFixed(5);
+    }
+
+    if (isNaN(result)) {
+      result = "Invalid Number";
+    }
 
     return result;
   };
@@ -15,6 +34,10 @@ function ConvertHandler() {
     let resultArray = input.match(/[a-z]+|[^a-z]+/gi);
     //Usually comes after number
     result = resultArray[1];
+
+    if (!result) {
+      result = resultArray[0];
+    }
 
     return result;
   };
@@ -176,7 +199,6 @@ function ConvertHandler() {
   };
 
   this.getString = function (initNum, initUnit, returnNum, returnUnit) {
-    console.log(returnUnit);
     let result = `${initNum} ${this.spellOutUnit(
       initUnit
     )} converts to ${returnNum} ${this.spellOutUnit(returnUnit)}`;
