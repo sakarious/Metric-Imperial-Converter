@@ -72,8 +72,22 @@ suite("Unit Tests", function () {
 
   test("Convert 'l' to 'gal'", (done) => {
     let initNum = "4.76";
-    let initUnit = "gal";
-    assert.equal(convertHandler.convert(initNum, initUnit), 18.01855);
+    let initUnit = "l";
+    assert.equal(convertHandler.convert(initNum, initUnit), 1.25746);
+    done();
+  });
+
+  test("Convert 'lbs' to 'kg'", (done) => {
+    let initNum = "4";
+    let initUnit = "lbs";
+    assert.equal(convertHandler.convert(initNum, initUnit), 1.81437);
+    done();
+  });
+
+  test("Convert 'kg' to 'lbs'", (done) => {
+    let initNum = "4";
+    let initUnit = "kg";
+    assert.equal(convertHandler.convert(initNum, initUnit), 8.8185);
     done();
   });
 });
