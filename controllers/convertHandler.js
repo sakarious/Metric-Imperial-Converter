@@ -51,7 +51,18 @@ function ConvertHandler() {
       }
     }
 
-    return result;
+    result;
+
+    if (
+      result != "L" ||
+      result != "kg" ||
+      result != "gal" ||
+      result != "lbs" ||
+      result != "mi" ||
+      result != "km"
+    ) {
+      result = "Invalid Unit";
+    }
   };
 
   this.getReturnUnit = function (initUnit) {
