@@ -34,9 +34,21 @@ function ConvertHandler() {
     let resultArray = input.match(/[a-z]+|[^a-z]+/gi);
     //Usually comes after number
     result = resultArray[1];
+    if (result) {
+      if (result == "l" || result == "L") {
+        result = "L";
+      } else {
+        result = result.toLowerCase();
+      }
+    }
 
     if (!result) {
       result = resultArray[0];
+      if (result == "l" || result == "L") {
+        result = "L";
+      } else {
+        result = result.toLowerCase();
+      }
     }
 
     return result;
