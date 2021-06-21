@@ -4,17 +4,17 @@ function ConvertHandler() {
     //Separate numbers from Unit
     let resultArray = input.match(/[a-z]+|[^a-z]+/gi);
     //Number comes before unit
-    result = parseFloat(resultArray[0]);
+    result = resultArray[0];
 
     //check if a value is given, if not, default to 1
     if (/\d/.test(result) === false) {
-      result = 1;
+      return (result = 1);
     }
 
     if (result.toString().includes("/")) {
-      let fraction = result.toString.split("/");
+      let fraction = result.toString().split("/");
       if (fraction.length !== 2) {
-        result = "Invalid Number";
+        return (result = "Invalid Number");
       }
       value1 = parseFloat(fraction[0]);
       value2 = parseFloat(fraction[1]);
@@ -51,16 +51,8 @@ function ConvertHandler() {
       }
     }
 
-    result;
-
-    if (
-      result != "L" ||
-      result != "kg" ||
-      result != "gal" ||
-      result != "lbs" ||
-      result != "mi" ||
-      result != "km"
-    ) {
+    let unitArray = ["L", "gal", "lbs", "kg", "km", "mi"];
+    if (unitArray.indexOf(result) === -1) {
       result = "Invalid Unit";
     }
 
@@ -103,7 +95,7 @@ function ConvertHandler() {
       case "mI":
       case "Mi":
       case "MI":
-        result = "Km";
+        result = "km";
         break;
       case "km":
       case "kM":
