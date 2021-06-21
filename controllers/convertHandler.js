@@ -72,6 +72,51 @@ function ConvertHandler() {
   this.spellOutUnit = function (unit) {
     let result;
 
+    switch (unit) {
+      case "Gal":
+      case "gAl":
+      case "gaL":
+      case "gal":
+      case "GAL":
+      case "GaL":
+      case "gAL":
+        result = "gallon(s)";
+        break;
+      case "L":
+      case "l":
+        result = "liter(s)";
+        break;
+      case "Lbs":
+      case "lBs":
+      case "lbS":
+      case "lbs":
+      case "LBS":
+      case "LbS":
+      case "lBS":
+        result = "pound(s)";
+        break;
+      case "kg":
+      case "kG":
+      case "Kg":
+      case "KG":
+        result = "kilogram(s)";
+        break;
+      case "mi":
+      case "mI":
+      case "Mi":
+      case "MI":
+        result = "Kmkilometer(s)";
+        break;
+      case "km":
+      case "kM":
+      case "Km":
+      case "KM":
+        result = "mile(s)";
+        break;
+      default:
+        result = false;
+    }
+
     return result;
   };
 
