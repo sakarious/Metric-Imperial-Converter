@@ -19,9 +19,15 @@ suite("Unit Tests", function () {
     let input1 = "4L";
     let input2 = "456KG";
     let input3 = "4.76Mi";
+    let input4 = "4.76KM";
+    let input5 = "4.76Gal";
+    let input6 = "4.76lbs";
     assert.equal(convertHandler.getUnit(input1), "L");
     assert.equal(convertHandler.getUnit(input2), "kg");
     assert.equal(convertHandler.getUnit(input3), "mi");
+    assert.equal(convertHandler.getUnit(input4), "km");
+    assert.equal(convertHandler.getUnit(input5), "gal");
+    assert.equal(convertHandler.getUnit(input6), "lbs");
     done();
   });
 
