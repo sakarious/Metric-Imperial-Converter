@@ -44,4 +44,16 @@ suite("Functional Tests", function () {
         done();
       });
   });
+
+  test("Convert 4/5/6/7hbs - Invalid number and unit", function (done) {
+    chai
+      .request(server)
+      .get("/api/convert")
+      .query({ input: "4/5/6/7hbs" })
+      .end(function (err, res) {
+        assert.equal(res.status, 200);
+        console.log(res.body, "invalid number and unit");
+        done();
+      });
+  });
 });
