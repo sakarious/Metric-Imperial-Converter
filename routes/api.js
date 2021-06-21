@@ -44,7 +44,7 @@ module.exports = function (app) {
       response["returnNum"] = returnNum;
       response["returnUnit"] = returnUnit;
       response["string"] = toString;
-      return res.json({ response });
+      return res.json(response);
     }
 
     return res.send('"input" query parameter is required');
