@@ -96,12 +96,12 @@ suite("Unit Tests", function () {
     let input4 = "KM";
     let input5 = "KG";
     let input6 = "LBS";
-    assert.equal(convertHandler.spellOutUnit(input1), "liter(s)");
-    assert.equal(convertHandler.spellOutUnit(input2), "gallon(s)");
-    assert.equal(convertHandler.spellOutUnit(input3), "mile(s)");
-    assert.equal(convertHandler.spellOutUnit(input4), "kilometer(s)");
-    assert.equal(convertHandler.spellOutUnit(input5), "kilogram(s)");
-    assert.equal(convertHandler.spellOutUnit(input6), "pound(s)");
+    assert.equal(convertHandler.spellOutUnit(input1), "liters");
+    assert.equal(convertHandler.spellOutUnit(input2), "gallons");
+    assert.equal(convertHandler.spellOutUnit(input3), "miles");
+    assert.equal(convertHandler.spellOutUnit(input4), "kilometers");
+    assert.equal(convertHandler.spellOutUnit(input5), "kilograms");
+    assert.equal(convertHandler.spellOutUnit(input6), "pounds");
     done();
   });
 
