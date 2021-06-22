@@ -6,26 +6,26 @@ const server = require("../server");
 chai.use(chaiHttp);
 
 suite("Functional Tests", function () {
-  test("Convert 45L - Valid input", function (done) {
+  test("Convert 10L - Valid input", function (done) {
     chai
       .request(server)
       .get("/api/convert")
-      .query({ input: "45L" })
+      .query({ input: "10L" })
       .end(function (err, res) {
         assert.equal(res.status, 200);
-        assert.equal(res.body.initNum, 45);
+        assert.equal(res.body.initNum, 10);
         assert.equal(res.body.initUnit, "L");
-        assert.approximately(res.body.returnNum, 11.88775, 0.1);
+        assert.approximately(res.body.returnNum, 2.64172, 0.1);
         assert.equal(res.body.returnUnit, "gal");
         done();
       });
   });
 
-  test("Convert 45hbs - Invalid Unit", function (done) {
+  test("Convert 32g - Invalid Unit", function (done) {
     chai
       .request(server)
       .get("/api/convert")
-      .query({ input: "45hbs" })
+      .query({ input: "32g" })
       .end(function (err, res) {
         assert.equal(res.status, 200);
         console.log(res.body, "invalid unit");
@@ -33,11 +33,11 @@ suite("Functional Tests", function () {
       });
   });
 
-  test("Convert 4/5/6/7l - Invalid number", function (done) {
+  test("Convert 3/7.2/4kg - Invalid number", function (done) {
     chai
       .request(server)
       .get("/api/convert")
-      .query({ input: "4/5/6/7l" })
+      .query({ input: "3/7.2/4kg" })
       .end(function (err, res) {
         assert.equal(res.status, 200);
         console.log(res.body, "invalid number");
@@ -45,11 +45,11 @@ suite("Functional Tests", function () {
       });
   });
 
-  test("Convert 4/5/6/7hbs - Invalid number and unit", function (done) {
+  test("Convert 3/7.2/4kilomegagram - Invalid number and unit", function (done) {
     chai
       .request(server)
       .get("/api/convert")
-      .query({ input: "4/5/6/7hbs" })
+      .query({ input: "3/7.2/4kilomegagram" })
       .end(function (err, res) {
         assert.equal(res.status, 200);
         console.log(res.body, "invalid number and unit");
