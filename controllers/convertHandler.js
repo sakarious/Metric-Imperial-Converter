@@ -120,11 +120,11 @@ function ConvertHandler() {
       case "GAL":
       case "GaL":
       case "gAL":
-        result = "gallon(s)";
+        result = "gallons";
         break;
       case "L":
       case "l":
-        result = "liter(s)";
+        result = "liters";
         break;
       case "Lbs":
       case "lBs":
@@ -133,25 +133,25 @@ function ConvertHandler() {
       case "LBS":
       case "LbS":
       case "lBS":
-        result = "pound(s)";
+        result = "pounds";
         break;
       case "kg":
       case "kG":
       case "Kg":
       case "KG":
-        result = "kilogram(s)";
+        result = "kilograms";
         break;
       case "mi":
       case "mI":
       case "Mi":
       case "MI":
-        result = "mile(s)";
+        result = "miles";
         break;
       case "km":
       case "kM":
       case "Km":
       case "KM":
-        result = "kilometer(s)";
+        result = "kilometers";
         break;
       default:
         result = false;
